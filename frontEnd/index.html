@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./frontEnd/mainFront.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+    <title>MedaBase</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarCenteredExample"
+                aria-controls="navbarCenteredExample" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
+                <!-- Left links -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Precios</a>
+                    </li>
+                    <!-- Navbar dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Iniciar Sesion
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Cuerpo Medico</a></li>
+                            <li><a class="dropdown-item" href="#">Paciente</a></li>
+                            <li><a class="dropdown-item" href="#">Crear Cuenta</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <div class="carrusel">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./frontEnd/img/carrosuselAssets/imgCar1.jpg" class="d-block w-100" alt="Img1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./frontEnd/img/carrosuselAssets/imgCar3.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./frontEnd/img/carrosuselAssets/imgCar2.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="sobreNosotros">
+        <h1>¿Quiénes Somos?</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque eius illum facere, fuga repellat deleniti
+            beatae? Tempora rem quis est dolore? Maiores, quod velit laborum dignissimos error, rem, nam sed nobis
+            doloremque distinctio neque excepturi esse quibusdam labore? Itaque debitis eaque adipisci totam? Vel,
+            labore harum! Praesentium error esse magni, sequi exercitationem laborum eius modi nulla eum quae vel
+            tempore numquam iure, earum tenetur eveniet nobis dolor ducimus velit reiciendis rem aspernatur. Ad hic
+            totam natus facere sint, facilis sunt laboriosam laborum officiis mollitia sequi autem vel recusandae
+            tempore nulla sed quam maiores harum iure molestias. Quas, provident. Voluptatum, ab natus magni unde in
+            reprehenderit laborum animi repellat recusandae rem incidunt cumque veniam adipisci soluta nulla vitae ullam
+            harum molestiae? Harum, consequatur, eaque dolor qui rerum, delectus consequuntur dicta optio accusamus
+            veritatis at incidunt. Rerum, maiores fugit. Distinctio cupiditate, suscipit labore harum blanditiis, quasi
+            aliquid voluptatibus consequuntur tempore esse, ducimus laborum. At nobis repellat corporis vero voluptatem
+            ratione odio aperiam quis est. Minima in odio aut voluptates autem? Impedit, aliquam facere! Repellat cum
+            quasi soluta! Neque asperiores sit fugit perspiciatis. Magni asperiores quod debitis eaque, placeat non
+            delectus rem. Dolorum, esse! Est ex veritatis quis molestias harum dolores mollitia fugit.</p>
+    </div>
+
+    <div class="cardsPrecios">
+        <div class="row">
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Gratuito</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Saber más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Basico</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Saber más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Premium</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Saber más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footerContainer">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-2 border-top">
+                <p class="col-md-4 mb-0 text-muted">© 2024 MedBase </p>
+
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-5 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+            </footer>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
