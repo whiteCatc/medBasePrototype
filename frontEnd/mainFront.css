@@ -1,0 +1,76 @@
+.buscador {
+    padding: 10%;
+}
+
+.btnCalendar {
+    padding-left: 2%;
+}
+
+.tituloConsultas {
+    text-align: center;
+    margin-top: 10%;
+
+}
+
+.iconNav {}
+
+.carrusel {
+    padding: 5%;
+}
+
+.cardsPrecios {
+    padding: 5%;
+}
+
+.sobreNosotros {
+    padding: 5%;
+}
+
+.footerContainer {
+    padding: 5%;
+}
+
+.card {
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+
+    background-color: #fff;
+}
+
+
+
+.stats {
+
+    background: #f2f5f8 !important;
+
+    color: #000 !important;
+}
+
+.articles {
+    font-size: 10px;
+    color: #a1aab9;
+}
+
+.number1 {
+    font-weight: 500;
+}
+
+.followers {
+    font-size: 10px;
+    color: #a1aab9;
+
+}
+
+.number2 {
+    font-weight: 500;
+}
+
+.rating {
+    font-size: 10px;
+    color: #a1aab9;
+}
+
+.number3 {
+    font-weight: 500;
+}
