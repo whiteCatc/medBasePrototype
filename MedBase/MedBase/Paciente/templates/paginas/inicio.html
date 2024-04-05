@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block titulo %} MedBase {% endblock %}
+
+{%  block contenido %}
+
+<div class="carrusel">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="carrosuselAssets/imgCar1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="carrosuselAssets/imgCar3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="carrosuselAssets/imgCar2.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="sobreNosotros">
+    <h1>¿Quiénes Somos?</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque eius illum facere, fuga repellat deleniti
+        beatae? Tempora rem quis est dolore? Maiores, quod velit laborum dignissimos error, rem, nam sed nobis
+        doloremque distinctio neque excepturi esse quibusdam labore? Itaque debitis eaque adipisci totam? Vel,
+        labore harum! Praesentium error esse magni, sequi exercitationem laborum eius modi nulla eum quae vel
+        tempore numquam iure, earum tenetur eveniet nobis dolor ducimus velit reiciendis rem aspernatur. Ad hic
+        totam natus facere sint, facilis sunt laboriosam laborum officiis mollitia sequi autem vel recusandae
+        tempore nulla sed quam maiores harum iure molestias. Quas, provident. Voluptatum, ab natus magni unde in
+        reprehenderit laborum animi repellat recusandae rem incidunt cumque veniam adipisci soluta nulla vitae ullam
+        harum molestiae? Harum, consequatur, eaque dolor qui rerum, delectus consequuntur dicta optio accusamus
+        veritatis at incidunt. Rerum, maiores fugit. Distinctio cupiditate, suscipit labore harum blanditiis, quasi
+        aliquid voluptatibus consequuntur tempore esse, ducimus laborum. At nobis repellat corporis vero voluptatem
+        ratione odio aperiam quis est. Minima in odio aut voluptates autem? Impedit, aliquam facere! Repellat cum
+        quasi soluta! Neque asperiores sit fugit perspiciatis. Magni asperiores quod debitis eaque, placeat non
+        delectus rem. Dolorum, esse! Est ex veritatis quis molestias harum dolores mollitia fugit.</p>
+</div>
+
+<div class="cardsPrecios">
+    <div class="row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Plan Gratuito</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Saber más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">Plan Basico</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Saber más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Plan Premium</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Saber más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footerContainer">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-2 border-top">
+            <p class="col-md-4 mb-0 text-muted">© 2024 MedBase </p>
+
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-5 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            </ul>
+        </footer>
+    </div>
+
+</div>
+    
+
+{% endblock %}
