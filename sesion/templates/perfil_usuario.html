@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <h1>Bienvenido, {{ usuario.nombre }} {{ usuario.apellidos }}</h1>
+    <p>CURP: {{ usuario.curp }}</p>
+    <p>Correo: {{ usuario.correo }}</p>
+    <a href="{% url 'logout' %}">Cerrar Sesión</a>
+</body>
+
+<script>
+    function verificarSesion() {
+        fetch('{% url "verificar_sesion" %}')
+            .then(response => response.json())
+            .then(data => {
+                if (!data.sesion_activa) {
+                    // Si la sesión no está activa, redirige al login
+                    window.location.href = '{% url "login" %}';
+                }
+            })
+            .catch(error => console.error('Error al verificar la sesión:', error));
+    }
+    
+    // Verificar el estado de la sesión cada 30 segundos
+    setInterval(verificarSesion, 10000);
+    </script>
+    
+</html>
