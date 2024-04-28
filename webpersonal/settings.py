@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'portfolio.apps.PortfolioConfig',
     'homePage',
     'account',
+    'sesion',
 ]
 
 MIDDLEWARE = [
