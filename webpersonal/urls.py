@@ -24,7 +24,7 @@ from account import views as account_views
 from django.conf import settings 
 
 urlpatterns = [
-    path('', core_views.home, name="home"),
+    path('', homePage_views.index, name="homepage"),
     path('about/', core_views.about, name="about"),
     path('portfolio/', portfolio_views.portfolio, name="portfolio"),
     path('contact/', core_views.contact, name="contact"),
