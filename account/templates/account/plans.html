@@ -1,0 +1,68 @@
+{% extends 'account/account.html' %}
+
+{% block title %}Planes{% endblock %}
+
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Información del Plan</h1>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Plan Actual</h5>
+            <p class="card-text">Plan Premium</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Estado</h5>
+            <p class="card-text">Activo</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Datos de Pago</h5>
+            <p class="card-text">Tarjeta de crédito **** **** **** 1234</p>
+            <p class="card-text">Fecha de expiración: 12/24</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarModal">Editar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarModalLabel">Editar Datos de Pago</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario para editar los datos de pago -->
+                <form>
+                    <div class="mb-3">
+                        <label for="tarjeta" class="form-label">Nombre del Titular</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tarjeta" class="form-label">Número de Tarjeta</label>
+                        <input type="text" class="form-control" id="tarjeta">
+                    </div>
+                    <div class="mb-3">
+                        <label for="expiracion" class="form-label">Fecha de Expiración</label>
+                        <input type="date" class="form-control" id="expiracion">
+                    </div>
+                    <div class="mb-2">
+                        <label for="tarjeta" class="form-label">CVV</label>
+                        <input type="number" class="form-control" id="cvv">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
