@@ -1,7 +1,7 @@
 {% extends 'account/account.html' %}
 
 {% block title %}Mi Perfil{% endblock %}
-
+{%block background %}{%load static%}{% static 'core/img/perfil-bg.jpg' %}{% endblock %}
 
 {% block content %}
 
@@ -14,9 +14,6 @@
                 <i class="bi bi-pencil-square"></i>
             </a>
         </div>
-    </div>
-    <div class="align-items-center justify-content-center container-fluid d-flex">
-        <h1>Mi perfil</h1>
     </div>
     <form>
         <div class="row mb-3">
