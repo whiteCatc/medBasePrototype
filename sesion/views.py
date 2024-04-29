@@ -5,11 +5,12 @@ from firebase_config import db
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
+from firebase_admin import storage
 
 
 def registro(request):
     if request.method == 'POST':
-        form = RegistroForm(request.POST)
+        form = RegistroForm(request.POST, request.FILES)  # Incluir request.FILES aquí es crucial para manejar archivos
         if form.is_valid():
             data = form.cleaned_data
             try:
@@ -19,12 +20,20 @@ def registro(request):
 
                 # Registro de usuario en Firestore
                 user_ref = db.collection('usuarios').document(data['curp'])
-                user_ref.set({
+                user_data = {
                     'nombre': data['nombre'],
                     'apellidos': data['apellidos'],
                     'correo': data['correo'],
                     'contraseña': password_hash.decode('utf-8')
-                })
+                }
+
+                if 'img' in request.FILES:
+                    image = request.FILES['img']
+                    image_url = upload_image_to_storage(image)  # Subir imagen y obtener URL
+                    user_data['imagen'] = image_url
+
+                #Set cambiado de lugar para ingresar la imagen si es que hay
+                user_ref.set(user_data)
 
                 # Creación del expediente médico
                 expediente_ref = db.collection('expedientes').document(data['curp'])
@@ -34,17 +43,21 @@ def registro(request):
                     }
                 })
 
-                # Puedes agregar subcolecciones si es necesario
-                expediente_consultas = expediente_ref.collection('Consultas')
-                # Añadir primera consulta si es necesario o dejar para cuando se cree efectivamente
-
                 return redirect('login')
             except Exception as e:
                 print(e)
-                # Manejar errores
+                return render(request, 'registro.html', {'form': form, 'error': str(e)})
     else:
         form = RegistroForm()
     return render(request, 'registro.html', {'form': form})
+
+def upload_image_to_storage(image_file):
+    bucket = storage.bucket('medbase-37455.appspot.com')
+    blob = bucket.blob(image_file.name)
+    blob.upload_from_file(image_file, content_type=image_file.content_type)
+    blob.make_public()
+    return blob.public_url
+
 
 @csrf_protect  # Asegura que la vista esté protegida contra CSRF
 def login(request):
@@ -66,17 +79,16 @@ def login(request):
                         'nombre': user_data['nombre'],
                         'apellidos': user_data['apellidos'],
                         'correo': user_data['correo'],
-                        'curp': curp
+                        'curp': curp,
+                        'imagen': user_data.get('imagen', '')  # Añade la URL de la imagen a la sesión
                     }
                     return redirect('perfil_usuario')
                 else:
-                    # Mensaje de error genérico para evitar dar detalles específicos
                     return render(request, 'login.html', {'error': 'CURP o contraseña incorrectos'})
             else:
-                # Mensaje de error genérico
                 return render(request, 'login.html', {'error': 'CURP o contraseña incorrectos'})
         except Exception as e:
-            print(e)  # Considera usar logging en lugar de print para producción
+            print(e)
             return render(request, 'login.html', {'error': 'Ha ocurrido un error al intentar iniciar sesión. Inténtalo de nuevo.'})
     return render(request, 'login.html')
 
