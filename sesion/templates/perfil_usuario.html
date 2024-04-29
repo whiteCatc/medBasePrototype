@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Perfil de Usuario</title>
-</head>
-<body>
+{% extends 'core/base.html' %}
+{% block title %}Perfil{% endblock %}
+
+{% block header%}
     <h1>Bienvenido, {{ usuario.nombre }} {{ usuario.apellidos }}</h1>
     <p>CURP: {{ usuario.curp }}</p>
     <p>Correo: {{ usuario.correo }}</p>
     <a href="{% url 'logout' %}">Cerrar Sesión</a>
-</body>
+
+{% endblock %}
 
 <script>
     function verificarSesion() {
