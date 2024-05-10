@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedBase</title>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Your custom JS file -->
+    <script src="js/firebase.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/authguard.js" defer></script>
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Expedientes</a></li>
+                <li><a href="index.html">Planes</a></li>
+                <li><a href="index.html">Configuraciones</a></li>
+                <li><a href="index.html">About us</a></li>
+            </ul>
+        </nav>
+        <button id="logout-button">Cerrar sesión</button>
+    </header>
+    <h1 id="welcome" >Bienvenido {{name}}</h1>
+    <h2 id="curp">CURP: {{curp}}</h2>
+    <h1>Expedientes</h1>
+    <button id="add-file-button">
+        Agregar expediente
+    </button>
+    <table>
+        <thead>
+            <tr>
+                <th>Clinica</th>
+                <th>Quien atendio</th>
+                <th>Observaciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody id="file-records-tbody">
+            <!-- <tr>
+                <td>IMSS</td>
+                <td>Dr. Juan Perez</td>
+                <td>El paciente se encuentra estable</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Eliminar</button>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+</body>
+</html>
