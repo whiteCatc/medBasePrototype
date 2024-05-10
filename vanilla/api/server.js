@@ -48,6 +48,25 @@ app.post('/login', authenticate, async (req, res) => {
         throw error;
     }
 });
+// this endpoint will update the user data in the database using the user's uid based on the token
+app.patch('/user', authenticate, async (req, res) => {
+    try {
+        const userDataCurp = await firestore.collection('users').doc(req.user.uid).get();
+        const data = userDataCurp.data();
+        const userData = await firestore.collection('users').doc(data.curp).get();
+        const { id } = userData.data();
+        const { name, curp, email, plan } = req.body;
+        await firestore.collection('users').doc(curp).update({
+            name,
+            email,
+            plan
+        });
+        res.send('User updated successfully');
+    } catch (error) {
+        console.error('Error updating user:', error);
+        throw error;
+    }
+});
 // this endpoint will return the user data from the database using the user's uid based on the token
 app.get('/user-data', authenticate, async (req, res) => {
     try {

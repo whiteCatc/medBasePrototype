@@ -16,7 +16,7 @@
     <script src="js/firebase.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/authguard.js" defer></script>
-    <script src="js/file-form.js" defer></script>
+    <script src="js/settings.js" defer></script>
 </head>
 <body>
     <header>
@@ -30,24 +30,22 @@
         </nav>
         <button id="logout-button">Cerrar sesión</button>
     </header>
-    <form action="submit"></form>
-    <input style="display: none;" type="text" id="id">
-    <label for="date">Fecha:</label>
-    <input type="date" id="date" required>
-    <label for="type">Tipo:</label>
-    <select name="type" id="type">
-        <option value="consulta">Consulta</option>
-        <option value="radiografía">Radiografía</option>
-    </select>
-    <label for="clinic">Clinica:</label>
-    <input type="text" id="clinic" required>
-    <label for="doctor">Quien atendio:</label>
-    <input type="text" id="doctor" required>
-    <label for="file">Archivo</label>
-    <input type="file" id="file" accept="image/*, .pdf" required>
-    <label for="observations">Observaciones:</label>
-    <textarea name="observations" id="observations" cols="30" rows="10"></textarea>
-    <button id="submit-file-button">Enviar</button>
-    <button id="cancel-file-button">Cancelar</button>
+    <form id="user-form" action="submit">
+        <input style="display: none;" type="text" id="id">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" required>
+        <label for="curp">CURP:</label>
+        <input type="text" id="curp" disabled>
+        <label for="email">Correo:</label>
+        <input type="email" id="email" required>
+        <label for="type">Plan:</label>
+        <select name="plan" id="plan">
+            <option value="plan1">Plan 1</option>
+            <option value="plan2">Plan 2</option>
+            <option value="plan3">Plan 3</option>
+        </select>
+        <button type="submit">Guardar</button>
+        <button id="cancel-button">Cancelar</button>
+    </form>
 </body>
 </html>
