@@ -1,3 +1,12 @@
+const logOutButton = document.getElementById('logout-button');
+if(logOutButton) {
+    console.log('Adding logout event listener');
+    logOutButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        logout();
+    });
+}
+
 var token = localStorage.getItem('token');
 
 function uuidv4() {
@@ -27,5 +36,15 @@ async function getUserData() {
         return response.data;
     } catch (error) {
         throw error;
+    }
+}
+
+async function logout() {
+    try {
+        console.log('Logging out');
+        await firebase.auth().signOut();
+        localStorage.clear();
+        location.href = './login.html';
+    } catch (error) {
     }
 }

@@ -1,19 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        getUserFiles();
-        const userData = await getUserData();
-        let element = document.getElementById('welcome');
-        if(element) element.innerHTML = replaceTextWithVariable(element.innerHTML, 'name', userData.name);
-        element = document.getElementById('curp');
-        if(element) element.innerHTML = replaceTextWithVariable(element.innerHTML, 'curp', userData.curp);
-    } catch (error) {
-        console.log('Error getting user data:', error);
-        if(error.message.includes('403')) {
-            alert('Sesion expirada, por favor inicia sesion de nuevo');
-            localStorage.removeItem('token');
-            location.href = './login.html';
-        }
-    }
+    getUserFiles();
+    const userData = await getUserData();
+    let element = document.getElementById('welcome');
+    if(element) element.innerHTML = replaceTextWithVariable(element.innerHTML, 'name', userData.name);
+    element = document.getElementById('curp');
+    if(element) element.innerHTML = replaceTextWithVariable(element.innerHTML, 'curp', userData.curp);
 });
 
 // Add file button event listener
