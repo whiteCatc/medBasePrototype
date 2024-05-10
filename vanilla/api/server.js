@@ -86,7 +86,7 @@ app.post('/upload-file', authenticate, async (req, res) => {
         const { curp } = userDataCurp.data();
         const userData = await firestore.collection('users').doc(curp).get();
         const { id } = userData.data();
-        const { date, type, clinic, doctor, observations, fileName, fileUrl } = req.body;
+        const { date, type, clinic, doctor, observations, fileName, fileUrl, filePath } = req.body;
         await firestore.collection('files').add({
             id: uuidv4(),
             date,
@@ -96,6 +96,7 @@ app.post('/upload-file', authenticate, async (req, res) => {
             observations,
             fileName,
             fileUrl,
+            filePath,
             userId: id
         });
         res.send('File uploaded successfully');
@@ -106,7 +107,7 @@ app.post('/upload-file', authenticate, async (req, res) => {
 });
 app.patch('/update-file', authenticate, async (req, res) => {
     try {
-        const { id, date, type, clinic, doctor, observations, fileName, fileUrl } = req.body;
+        const { id, date, type, clinic, doctor, observations, fileName, fileUrl, filePath } = req.body;
         const fileFound = await firestore.collection('files').where('id', '==', id).get();
         const file = fileFound.docs.pop();
         await file.ref.update({
@@ -116,7 +117,8 @@ app.patch('/update-file', authenticate, async (req, res) => {
             doctor,
             observations,
             fileName,
-            fileUrl
+            fileUrl,
+            filePath,
         });
         res.send('File updated successfully');
     } catch (error) {
