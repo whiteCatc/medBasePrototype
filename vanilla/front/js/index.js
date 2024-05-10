@@ -38,14 +38,57 @@ async function getUserFiles() {
                 fileCol.innerHTML = file[col];
                 fileRow.appendChild(fileCol);
             });
-            const actionsTd = document.createElement('td');
-            const viewButton = document.createElement('button');
-            viewButton.innerHTML = 'Ver';
-            viewButton.addEventListener('click', async () => {
+
+            const editButton = document.createElement('button');
+            editButton.innerHTML = 'Editar';
+            editButton.addEventListener('click', async () => {
                 localStorage.setItem('file', JSON.stringify(file));
                 location.href = './file-form.html';
             });
-            actionsTd.appendChild(viewButton);
+            
+            const downloadFileButton = document.createElement('button');
+            downloadFileButton.innerHTML = 'Ver archivo';
+            downloadFileButton.addEventListener('click', async () => {
+                const link = document.createElement('a');
+                link.href = file.fileUrl;
+                link.target = '_blank';
+                link.download = file.fileName;
+                link.click();
+            });
+
+            const deleteFileButton = document.createElement('button');
+            deleteFileButton.innerHTML = 'Eliminar';
+            deleteFileButton.addEventListener('click', async () => {
+                try {
+                    if(confirm('¿Estas seguro que deseas eliminar este archivo?')) {
+                        try {
+                            await axios({
+                                method: 'DELETE',
+                                url: 'http://localhost:3100/delete-file',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}`
+                                },
+                                data: {
+                                    filePath: file.filePath
+                                }
+                            });
+                            alert('Archivo eliminado exitosamente');
+                            window.location.reload();
+                        } catch (error) {
+                            alert('Error eliminando archivo');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error deleting file:', error);
+                    alert('Error eliminando archivo');
+                }
+            });
+            
+            const actionsTd = document.createElement('td');
+            actionsTd.appendChild(editButton);
+            actionsTd.appendChild(downloadFileButton);
+            actionsTd.appendChild(deleteFileButton);
             fileRow.appendChild(actionsTd);
             filesList.appendChild(fileRow);
         });

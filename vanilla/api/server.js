@@ -4,7 +4,7 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 app.use(cors());
-const { admin, firestore, auth } = require('./firebase/firebase.service'); // Import the admin, firestore, and auth objects from the firebase.service.js file
+const { admin, firestore, auth, storage } = require('./firebase/firebase.service'); // Import the admin, firestore, and auth objects from the firebase.service.js file
 
 // Middleware to authenticate requests using Firebase Tokens
 const authenticate = async (req, res, next) => {
@@ -123,6 +123,19 @@ app.patch('/update-file', authenticate, async (req, res) => {
         res.send('File updated successfully');
     } catch (error) {
         console.error('Error updating file:', error);
+        throw error;
+    }
+});
+app.delete('/delete-file', authenticate, async (req, res) => {
+    try {
+        const { filePath } = req.body;
+        const fileFound = await firestore.collection('files').where('filePath', '==', filePath).get();
+        const file = fileFound.docs.pop();
+        await storage.bucket().file(filePath).delete();
+        await file.ref.delete();
+        res.send('File deleted successfully');
+    } catch (error) {
+        console.error('Error deleting file:', error);
         throw error;
     }
 });
