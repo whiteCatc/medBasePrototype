@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedBase</title>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Your custom JS file -->
+    <script src="js/firebase.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/register.js" defer></script>
+</head>
+<body>
+    <h1>Registro</h1>
+    <form>
+        <label for="name">Nombre:</label>
+        <input type="text" value="Antonio" id="name" required>
+        <label for="curp">Curp:</label>
+        <input type="text" value="RORJ000519HJCMDNA0" id="curp" required>
+        <label for="email">Email:</label>
+        <input type="email" value="aromanomacias@gmail.com" id="email" required>
+        <label for="password">Password:</label>
+        <input type="password" value="123456" id="password" required>
+        <button id="register-button">Registrarse</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedBase</title>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Your custom JS file -->
+    <script src="js/firebase.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/authguard.js" defer></script>
+    <script src="js/file-form.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Expedientes</a></li>
+                <li><a href="index.html">Planes</a></li>
+                <li><a href="settings.html">Configuraciones</a></li>
+                <li><a href="index.html">About us</a></li>
+            </ul>
+        </nav>
+        <button id="logout-button">Cerrar sesión</button>
+    </header>
+    <form action="submit"></form>
+    <input style="display: none;" type="text" id="id">
+    <label for="date">Fecha:</label>
+    <input type="date" id="date" required>
+    <label for="type">Tipo:</label>
+    <select name="type" id="type">
+        <option value="consulta">Consulta</option>
+        <option value="radiografía">Radiografía</option>
+    </select>
+    <label for="clinic">Clinica:</label>
+    <input type="text" id="clinic" required>
+    <label for="doctor">Quien atendio:</label>
+    <input type="text" id="doctor" required>
+    <label for="file">Archivo</label>
+    <input type="file" id="file" accept="image/*, .pdf" required>
+    <label for="observations">Observaciones:</label>
+    <textarea name="observations" id="observations" cols="30" rows="10"></textarea>
+    <button id="submit-file-button">Enviar</button>
+    <button id="cancel-file-button">Cancelar</button>
+</body>
+</html>
